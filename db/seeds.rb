@@ -9,3 +9,7 @@
 User.create!(email: 'elon@musk.com', password: '1234')
 User.create!(email: 'nikola@tesla.com', password: '1234')
 User.create!(email: 'thomas@edison.com', password: '1234')
+
+Party.create!(title: "Rush Hour", duration: 220, date: '12/20/20', time: '4:00')
+
+UserParty.create!(party_id: @party2.id, attendee_id: @user.id)
