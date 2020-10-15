@@ -1,5 +1,4 @@
 class MovieDataBaseFacade
-
   def self.top_rated_movies
     MovieService.top_rated_movies.map do |movie|
       Movie.new(movie)
@@ -13,7 +12,8 @@ class MovieDataBaseFacade
   end
 
   def self.movie_details(id)
-    Movie.new(MovieService.movie_details(id))
+    details = MovieService.movie_details(id)
+    Movie.new(details)
   end
 
   def self.movie_cast(id)
@@ -26,5 +26,9 @@ class MovieDataBaseFacade
     MovieService.reviews(id).map do |review|
       Review.new(review)
     end
+  end
+
+  def self.movie_trailer(id)
+    Trailer.new(MovieService.movie_trailer(id))
   end
 end

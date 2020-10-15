@@ -29,14 +29,14 @@ RSpec.describe "Top Movies Page" do
   it "Top 40 movies search by keyword", :vcr do
     visit discover_path
 
-    fill_in :find_movies, with: 'Rush'
+    fill_in :find_movies, with: 'Rush Hour'
     click_button 'Find Movies'
     expect(current_path).to eq movies_search_path
-    expect(page).to have_css('.movie', count: 40)
+    expect(page).to have_css('.movie', count: 10)
 
     within(first('.movie')) do
       within('.title')  do
-        expect(page).to have_link("Rush Hour")
+        expect(page).to have_link('Rush Hour')
       end
 
       within('.vote_average')  do

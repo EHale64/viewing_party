@@ -8,7 +8,7 @@
 <% @movies.each do |movie| %>
 <section class='movie'>
   <section class='title'>
-    <%= link_to movie.title, "/movies/#{movie.id}",method: :get %>
+    <%= link_to movie.title, "/movies/#{movie.id}", method: :get %>
   </section>
   <section class='vote_average'>
     <%= movie.vote_average %>

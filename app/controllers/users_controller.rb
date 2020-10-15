@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     new_user = User.new(user_params)
@@ -8,11 +7,11 @@ class UsersController < ApplicationController
       session[:user_id] = new_user.id
       redirect_to user_dashboard_path(new_user.id)
     elsif params[:password] != params[:password_confirmation]
-       flash[:error] = "Passwords do not match"
-       redirect_to request.referrer
+      flash[:error] = 'Passwords do not match'
+      redirect_to request.referer
     else
       flash[:error] = new_user.errors.full_messages.to_sentence
-      redirect_to request.referrer
+      redirect_to request.referer
     end
   end
 
